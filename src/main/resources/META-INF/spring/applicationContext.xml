@@ -57,9 +57,8 @@
         <property name="url"
             value="jdbc:postgresql://localhost:5432/scbDB" />
         <property name="username" value="postgres" />
-        <property name="password" value="postgres" />
-         -->
-         <property name="testOnBorrow" value="true"/>
+        <property name="password" value="postgres" /> -->
+        <property name="testOnBorrow" value="true"/>
         <property name="testOnReturn" value="true"/>
         <property name="testWhileIdle" value="true"/>
         <property name="timeBetweenEvictionRunsMillis" value="1800000"/>

@@ -17,6 +17,9 @@ public class PessoaController {
 	@Autowired
 	private PessoaDAO dao;
 	
+	 public PessoaController() {
+		System.out.println("Teste!");
+	}
 	@RequestMapping(value="/criar", method = RequestMethod.POST)
 	public String criar(@ModelAttribute("pessoa") Pessoa pessoa) {
 		
@@ -27,7 +30,7 @@ public class PessoaController {
 		
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/teste")
 	public String newPerson(Map<String, Object> model) {
 		
 		model.put("pessoa", new Pessoa());

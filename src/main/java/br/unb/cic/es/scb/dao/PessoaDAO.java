@@ -1,5 +1,7 @@
 package br.unb.cic.es.scb.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -14,13 +16,13 @@ import br.unb.cic.es.scb.models.Pessoa;
 public class PessoaDAO {
 	
 	@Autowired
-	private SessionFactory sessionFactory;
+	private EntityManagerFactory entityManagerFactory;
 	
 	public void persist(Pessoa p) {
-		getSession().persist(p);
+		getEntityManager().persist(p);
 	}
 	
-	private Session getSession() {
-		return sessionFactory.getCurrentSession();
+	private EntityManager getEntityManager() {
+		return entityManagerFactory.createEntityManager();
 	}
 }

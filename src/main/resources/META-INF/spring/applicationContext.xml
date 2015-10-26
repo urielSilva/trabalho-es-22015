@@ -42,30 +42,32 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		The most commonly used annotation is @Autowired, which instructs Spring to 
 		dependency inject an object into your class. -->
 
-	<mvc:resources location="/, classpath:/META-INF/web-resources/"
-		mapping="/resources/**" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+
+	
+
 	<mvc:annotation-driven></mvc:annotation-driven>
 	<context:component-scan base-package="br.unb.cic.es.scb">
 	</context:component-scan>
 	<bean class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close" id="dataSource">
-		<property name="driverClassName" value="${database.driverClassName}"/> 
+		<!-- <property name="driverClassName" value="${database.driverClassName}"/> 
 			<property name="url" value="#{ 'jdbc:postgresql://' + @dbUrl.getHost() + 
 			':' + @dbUrl.getPort() + @dbUrl.getPath() }"/> <property name="username" 
 			value="#{ @dbUrl.getUserInfo().split(':')[0] }"/> <property name="password" 
-			value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
+			value="#{ @dbUrl.getUserInfo().split(':')[1] }"/> -->
 
-		<!-- <property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="jdbc:postgresql://localhost:5432/scbDB" />
 		<property name="username" value="postgres" />
 		<property name="password" value="postgres" />
- -->
+
 		<property name="testOnBorrow" value="true" />
 		<property name="testOnReturn" value="true" />
 		<property name="testWhileIdle" value="true" />
@@ -74,8 +76,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="minEvictableIdleTimeMillis" value="1800000" />
 		<property name="validationQuery" value="SELECT version();" />
 	</bean>
-	<bean class="java.net.URI" id="dbUrl"> <constructor-arg value="${DATABASE_URL}"/> 
-		</bean>
+	<!-- <bean class="java.net.URI" id="dbUrl"> <constructor-arg value="${DATABASE_URL}"/> 
+		</bean> -->
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />

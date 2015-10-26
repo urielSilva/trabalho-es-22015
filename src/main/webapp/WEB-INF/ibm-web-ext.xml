@@ -6,7 +6,7 @@
 	version="1.0">
 
 	<reload-interval value="3"/>
-	<context-root uri="sgcb" />
+	<context-root uri="trabalho-es-unb-2-2015" />
 	<enable-directory-browsing value="false"/>
 	<enable-file-serving value="true"/>
 	<enable-reloading value="true"/>
